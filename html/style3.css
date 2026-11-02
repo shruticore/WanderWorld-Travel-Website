@@ -1,0 +1,47 @@
+.Header {
+    background-color: rgb(12, 12, 151);
+    text-align: center;
+    color: white;
+    padding: 50px;
+    margin: 0px;
+    position: relative;
+    top: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+
+}
+
+.Header2 {
+    color: rgb(12, 12, 151);
+    position: relative;
+    left: 15px;
+}
+
+.Header3 {
+    background-color: rgb(12, 12, 151);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin: 0px;
+
+}
+
+.Box {
+    border: 1px solid black;
+    background-color: aliceblue;
+}
+
+.image {
+    float: left;
+    margin-left: 15px;
+    border: 3px solid rgb(12, 12, 151);
+    height: 200px;
+    width: 300px;
+
+}
+
+p {
+    font-family:'Times New Roman', Times, serif;
+    line-height: 1.5;
+
+}

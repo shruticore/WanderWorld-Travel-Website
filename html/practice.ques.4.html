@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PIZZA ORDER</title>
+    </head>
+    <body>
+        <form action="sumbit_form.php" method="post">
+        <fieldset>
+
+        <h1 style="text-align: center;">Pete's Pizza delivery</h1>
+        <h3 style="text-align: center;">Online Order Form</h3>
+         
+         <label for="name">*Name:</label>
+         <input type="text" name="name" id="name" placeholder="Enter name">
+        
+         <label for="tel">*Tel:</label>
+         <input type="tel" name="tel" id="tel">
+         <br>
+         <label for="address">*Address:</label>
+         <input type="text" name="address" id="address" placeholder="Enter address">
+
+         <label for="email">*Email:</label>
+         <input type="email" name="email" id="email">
+         <br>
+         <label for="town">*Town/City:</label>
+         <input type="text" name="town" id="town" placeholder="Enter Town/City">
+         <br>
+         <label for="pincode">*Pincode:</label>
+         <input type="number" name="pincode" id="pincode">
+
+         <p style="text-align: center;">*required fields</p>
+         <br><br>
+        
+         <h3 style="text-align: center;">Topping Size Extras</h3>
+         <input type="radio" name="Topping" id="margherita" value="margherita">
+         <label for="margherita">Margherita</label>
+         
+         <input type="radio" name="Size" id="small" value="small">
+         <label for="small">Small</label>
+
+         <input type="checkbox" name="Extras" id="mushrooms" value="mushrooms">
+         <label for="mushrooms">Mushrooms</label>
+
+         <br>
+
+         <input type="radio" name="Topping" id="four seasons" value="four seasons">
+         <label for="four seasons">Four Seasons</label>
+
+         <input type="radio" name="Size" id="medium" value="medium">
+         <label for="medium">Medium</label>
+
+         <input type="checkbox" name="Extras" id="green peppers" value="green peppers">
+         <label for="green peppers">Green peppers</label>
+
+         <br>
+
+         <input type="radio" name="Topping" id="Meat Feast" value="Meat Feast">
+         <label for="Meat Feast">Meat Feast</label>
+
+         <input type="radio" name="Size" id="large" value="large">
+         <label for="large">Large</label>
+
+         <input type="checkbox" name="Extras" id="Anchovies" value="Anchovies">
+         <label for="Anchovies">Anchovies</label>
+
+         <br>
+
+         <input type="checkbox" name="Extras" id="Extra cheese" value="Extra cheese">
+         <label for="Extra cheese">Extra cheese</label>
+
+         <br><br>
+
+         <label for="time">Preferred delivery time:</label>
+         <input type="time" name="time" id="time"><br>
+
+         <label for="instructions">Delivery instructions:</label><br>
+         <textarea rows="10" cols="35"></textarea><br>
+
+         <input type="submit" value="Submit order">
+
+        </fieldset>
+        </form>
+    </body>
+</html>

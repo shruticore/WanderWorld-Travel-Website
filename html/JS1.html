@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>formValidation</title>
+    </head>
+    <body>
+        <form action="submit_form.php" method="post">
+            <fieldset>
+                 <legend>Form1</legend>
+                 <label for="name">Name:</label>
+                 <input type="text" name="name" id="name" placeholder="Enter name">
+                 <br><br>
+
+                 <label for="email">Email:</label>
+                 <input type="email" name="email" id="email" placeholder="Enter email">
+                 <br><br>
+
+                 <label for="password">Password:</label>
+                 <input type="password" name="password" id="password" placeholder="Enter password">
+                 <br><br>
+
+                 <label for="age">Age:</label>
+                 <input type="number" name="age" id="age" placeholder="Enter age">
+                 <br><br>
+
+                 <label for="dob">Date of Birth:</label>
+                 <input type="date" name="dob" id="dob">
+                 <br><br>
+
+                 <label for="color">Favorite color:</label>
+                 <input type="color" id="color" name="color"><br><br>
+
+                 <label for="website">Website:</label>
+                 <input type="url" id="website" name="website" placeholder="link url"><br><br>
+
+                 <label for="place">Choose Place</label>
+                 <select id="place" name="Place"><br><br>
+
+                 <option value="cse">Computer Science</option>
+                 <option value="ece">Electronics</option>
+                 <option value="mech">Mechanical</option>
+                 <option value="civil">Civil</option>
+
+                 </select>   
+        
+                 <textarea name="message" rows="18" cols="38" placeholder="Enter text"></textarea><br><br>
+                 <textarea rows="7" cols="48" placeholder="Enter your review"></textarea>
+
+                 <h5>select gender</h5>
+                 <label for="male">Male</label>
+                 <input type="radio" id="male" name="gender" value="male"><br>
+
+                 <lable for="female">Female</lable>
+                 <input type="radio" id="female" name="gender" value="female"><br>
+
+                 <label for="other">Can't say</label>
+                 <input type="radio" id="other" name="gender" value="other"><br><br><br>
+ 
+                 <input type="radio" id="web" name="course" value="web">
+                 <label for="web">Web designing</label>
+
+                 <input type="radio" name="course" id="cloud" value="cloud">
+                 <label for="cloud">Cloud computing</label>
+
+                 <input type="radio" name="course" id="Al-Ml" value="Al-Ml">
+                 <label for="Al-Ml">AL-ML</label><br><br>
+
+                 <h5>Select your hobbies</h5>
+
+                 <input type="checkbox" name="hobby" id="read" value="read">
+                 <label for="read">Reading</label><br>
+
+                 <input type="checkbox" name="hobby" id="swimming" value="swimming">
+                 <label for="swimming">swimming</label><br>
+
+                <input type="submit" value="submit">
+                <button>Click</button>
+
+            </fieldset>
+        </form>
+        <script>
+            function validateForm() {
+
+                 let name = document.getElementById("name").value;
+
+                 name = name.trim();
+
+                     /*
+                     = means value assign 
+                     == means loosely coupled (magnitude)
+                     === means strictly coupled (magnitude,data)
+                     */
+
+                 if (name === "") {
+
+                    alert("Name must be filled out!");
+                    return false;
+                 }
+
+                 let email= document.getElementById("email").value;
+
+                 email =email.trim();
+
+                 if(email ===""){
+                    alert("Email must be filled out!");
+                    return false;
+                 }
+
+                 let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]$/;
+
+                 if (!emailPattern.test(email)) {
+                  alert("Please enter a valid email address");
+                  return false;
+                 }
+
+
+                 let password= document.getElementById("password").value;
+
+                 if(password === ""){
+
+                    alert("password cannot be empty!");
+                    return false;
+                 }
+
+                 if(password.length < 6) {
+
+                    alert("password must be atleast 6 characters long");
+                    return false;
+                 }
+
+                 if(password.length > 20) {
+
+                    alert ("password cannot be more than 20 characters");
+                    return false;
+                 }
+
+                 let age= document.getElementById("age").value;
+
+                 if(age === "") {
+
+                    alert("age must be filled out!");
+                    return false;
+                 }
+
+                 age =Number(age);
+
+                 if (isNaN(age)) {
+                    alert("Please enter a valid age");
+                    return false;
+                 }
+
+                 if(age<0) {
+
+                    alert("age cannot be less than 0");
+                    return false;
+
+                 }
+
+                 let dob =document.getElementById("dob").value;
+
+                 if (dob === "") {
+
+                    alert("please select your date of birth");
+                    return false;
+                 }
+
+                 let website = document.getElementById("website").value;
+
+                 website =website.trim();
+
+                 if (website === "") {
+                  alert("Website cannot be empty");
+                  return false;
+                 }
+
+                /*if (!website.startsWith("http://") && !website.startsWith("https://)) {
+                 
+                alert("Website must start with http:// or https://");
+                return 0;
+                }*/
+
+                let department = document.getElementById("department").value;
+
+                if (department === "") {
+                  alert("Please select your department");
+                  return false;
+                }
+
+                let message = document.getElementById("message").value;
+
+                message = message.trim();
+
+                if(message === ""){
+                  alert("Please enter your message");
+                  return false;
+                }
+
+                let address = document.getElementById("address").value;
+
+                address = address.trim();
+
+                if ( address ==="") {
+                  alert("Please enter your address");
+                  return false;
+                }
+
+                let gender = document.querySelector()
+                }
+        </script>
+    
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Armstrong number</title>
+    </head>
+    <body>
+        <script>
+            let n=153;
+            let temp=n;
+            let sum=0;
+            let d=0;
+            for(let i=n; i>0; i++){
+                n=n/10;
+                d++;
+            }
+            n=temp;
+            for(let i=n; i>0; i++){
+                let rev=n%10;
+                sum=sum + pow(rev,d);
+                n=n/10;
+            }
+            n=temp;
+            if(n==sum){
+                document.write("Armstrong number");
+            }
+            else{
+                document.write("Not Armstrong number");
+            }
+
+        </script>
+    </body>
+</html>

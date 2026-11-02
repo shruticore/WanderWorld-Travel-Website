@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My Feedback Form</h1>
+    <form action="">
+    <ul>
+        <li>
+            <label for="name">Name : </label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+        </li>
+        <li>
+            <label for="email">Email : </label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+        </li>
+        <li>
+            <label for="pass">Password</label>
+            <input type="password" id="pass" name="password">
+        </li><br><br><br>
+        <li>
+            Please check all the emotions that apply to you:
+            <ul>
+                <li>
+                    <label for="ang">Angry</label>
+                    <input type="checkbox" id="ang" value="angry" name="emotions">
+                </li>
+                <li>
+                    <label for="sad">Sad</label>
+                    <input type="checkbox" id="sad" value="sad" name="emotions">
+                </li>
+                <li>
+                    <label for="hap">Happy</label>
+                    <input type="checkbox" id="hap" value="happy" name="emotions">
+                </li>
+                <li>
+                    <label for="ambi">Ambivalent</label>
+                    <input type="checkbox" id="ambi" value="ambivalent" name="emotions">
+                </li>
+            </ul>
+        </li>
+        <li>
+            How satisfied were you with our service?
+            <ul>
+                <li>
+                    <label for="vs">Very Satisfied</label>
+                    <input type="radio" id="vs" value="very_satisfied" name="satisfaction">
+                </li>
+                <li>
+                    <label for="s">Satisfied</label>
+                    <input type="radio" id="s" value="satisfied" name="satisfaction">
+                </li>
+                <li>
+                    <label for="dc">Didn't care</label>
+                    <input type="radio" id="dc" value="didn't_care" name="satisfaction">
+                </li>
+                <li>
+                    <label for="d">Dissatified</label>
+                    <input type="radio" id="d" value="dissatisfied" name="satisfaction">
+                </li>
+                <li>
+                    <label for="vd">Very dissatisfied</label>
+                    <input type="radio" id="vd" value="very_dissatisfied" name="satisfaction">
+                </li>
+            </ul>
+        </li><br>
+        <li>
+            <label for="text">Further comments: </label>
+           <textarea name="text" id="text"></textarea>
+        </li>
+        <li>
+            <label for="lv">Location Visited: </label>
+            <select name="lv" id="lv">
+                <option value="#">--Select Location--</option>
+                <option value="kashmir">kashmir</option>
+                <option value="aligarh">Aligarh</option>
+            </select>
+        </li><br>
+        <li>
+            <button type="submit">Submit</button>
+        </li>
+    </ul>
+    </form>
+    <script>
+
+function submitForm(){
+
+var name=document.getElementById("name").value;
+var email=document.getElementById("email").value;
+var password=document.getElementById("password").value;
+
+if(name=="" || email=="" || password==""){
+alert("Please fill all the details");
+return false;
+}
+
+alert("Form submitted successfully");
+return false;
+
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Notice Board</title>
+
+    <style>
+        body {
+            background-color: #f5f5f5;
+            margin: 20px;
+            font-family: Arial;
+        }
+
+        h1 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        /* Sticky Heading */
+        h2 {
+            background-color: navy;
+            color: white;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+        }
+
+        /* Common Notice Box */
+        p {
+            width: 400px;
+            padding: 20px;
+            border: 2px solid gray;
+            margin: 20px;
+            background-color: white;
+        }
+
+        /* Relative Parent */
+        .notice1 {
+            position: relative;
+        }
+
+        /* Absolute Child */
+        .new {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            padding: 5px;
+            border: 1px solid darkred;
+        }
+
+        /* Static Example */
+        .notice2 {
+            position: static;
+        }
+
+        /* Fixed Button */
+        button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px;
+            background-color: green;
+            color: white;
+            border: none;
+        }
+
+        /* Extra content for scrolling */
+        .extra {
+            width: 400px;
+            padding: 20px;
+            border: 1px solid lightgray;
+            margin: 20px;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>College Notice Board</h1>
+
+    <h2>Important Notices</h2>
+
+    <p class="notice1">
+        Exam form submission starts from Monday.
+        <span class="new">NEW</span>
+    </p>
+
+    <p class="notice2">
+        All students must carry their college ID card.
+    </p>
+
+    <p>
+        The library will remain open until 8 PM.
+    </p>
+
+    <p class="extra">Workshop registration is open.</p>
+    <p class="extra">Sports trials begin next week.</p>
+    <p class="extra">Placement training starts tomorrow.</p>
+    <p class="extra">Submit your assignments before Friday.</p>
+    <p class="extra">Keep scrolling to observe the sticky heading and fixed button.</p>
+    <p class="extra">How to bunk Sir classes...</p>
+    <p class="extra">How to get attendence without come to college...</p>
+    <p class="extra">How to get good marks without studying...</p>
+
+    <button>Contact Us</button>
+
+</body>
+</html>

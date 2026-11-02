@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Reverse a number</title>
+    </head>
+    <body>
+        <script>
+            let n=153;
+            let originalNumber=n;
+            let rev=0;
+
+            while(n>0){
+                let digit =n%10;
+                rev=rev*10+digit;
+                document.write(+rev+"<br>")
+                n=Math.floor(n/10);
+            }
+
+            document.write("original number = "+originalNumber+"<br>");
+            document.write("reverse number = "+rev+"<br>");
+        </script>
+    </body>
+</html>

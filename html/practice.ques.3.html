@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Feedback Form</title>
+    </head>
+        <body>
+        <form action="submit_form.php" method="post">
+            <fieldset>
+                <h1>My Feedback Form</h1>
+                <br>
+                <ul>
+                    <li>
+                        <label for="name">Name:</label>
+                        <input type="text" name="name" id="name" placeholder="Enter name">
+                    </li>
+
+                    <li>
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" placeholder="Enter email">
+                    </li>
+
+                    <li>
+                        <label for="pass">Password:</label>
+                        <input type="password" name="pass" id="pass" placeholder="Enter password">
+                    </li>
+                    <br>
+
+                    <dl>
+                        <li>
+                            <dt>Please check all the emotions that apply to you:</dt>
+                        </li>
+                            <ul>
+                                <li>
+                                <dd>
+                                     <label for="angry">Angry</label>
+                                     <input type="checkbox" name="emotions" id="angry" value="angry">
+                                </dd>
+                             </li>
+
+                             <li>
+                                <dd>
+                                     <label for="sad">Sad</label>
+                                     <input type="checkbox" name="emotions id="sad" value="sad">
+                                </dd>
+                             </li>
+
+                             <li>
+                                <dd>
+                                    <label for="happy">Happy</label>
+                                    <input type="checkbox" name="emotions" id="happy" value="happy">
+                                </dd>
+                             </li>
+
+                             <li>
+                                <dd>
+                                    <label for="ambivalent">Ambivalent</label>
+                                    <input type="checkbox" name="" id="">
+                                </dd>
+                             </li>
+                        </ul>
+                        <li>
+                            <dt>How satisfied were you with our service?</dt>
+                        </li>
+                            <ul>
+                                <li>
+                                    <dd>
+                                         <label for="very satisfied">Very satisfied</label>
+                                         <input type="radio" name="service" id="very satisfied" value="very satisfied">
+                                    </dd>
+                                </li>
+
+                                <li>
+                                    <dd>
+                                        <label for="satisfied">Satisfied</label>
+                                        <input type="radio" name="service" id="satisfied" value="satisfied">
+                                    </dd>
+                                </li>
+
+                                <li>
+                                    <dd>
+                                        <label for="didn't care">Didn't care</label>
+                                        <input type="radio" name="service" id="didn't care" value="didn't care">
+                                    </dd>
+                                </li>
+
+                                <li>
+                                    <dd>
+                                        <label for="dissatisfied">Dissatisfied</label>
+                                        <input type="radio" name="service" id="dissatisfied" value="dissatisfied">
+                                    </dd>
+                                </li>
+
+                                <li>
+                                    <dd>
+                                        <label for="very dissatisfied">Very Dissatisfied</label>
+                                        <input type="radio" name="service" id="very dissatisfied" value="very dissatisfied">
+                                    </dd>
+                                </li>
+                            </ul>
+                    </dl>
+                    <li>
+                        <label for="comment">Further comment:</label><br>
+                        <textarea name="comment" id="comment" rows="7" cols="48"></textarea>
+                    </li>
+
+                    <li>
+                        <label for="pic">Bio photo</label>
+                        <input type="file" name="pic" id="pic">
+                    </li>
+
+                    <li>
+                        <label for="location">Location visited</label>
+                        <select name="location" id="location">
+                            <option value="#">--Select Location--</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="uttar pradesh">Uttar Pradesh</option>
+                            <option value="gujrat">Gujrat</option>
+                            <option value="jammu">Jammu</option>
+                            <option value="kolkata">Kolkata</option>
+
+                        </select>    
+
+                            <br><br>
+                    </li>
+                </ul>
+                        <input type="submit" value="submit">
+                        <button>click</button>
+            </fieldset>
+        </form>
+        <script>
+            function submit_form(){
+                let name = document.getElementById("name").value;
+
+                 name = name.trim();
+
+                     /*
+                     = means value assign 
+                     == means loosely coupled (magnitude)
+                     === means strictly coupled (magnitude,data)
+                     */
+
+                 if (name === "") {
+
+                    alert("Name must be filled out!");
+                    return false;
+                 }
+
+                 let email= document.getElementById("email").value;
+
+                 email =email.trim();
+
+                 if(email ===""){
+                    alert("Email must be filled out!");
+                    return false;
+                 }
+
+                 let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]$/;
+
+                 if (!emailPattern.test(email)) {
+                  alert("Please enter a valid email address");
+                  return false;
+                 }
+
+
+                 let password= document.getElementById("pass").value;
+
+                 if(password === ""){
+
+                    alert("password cannot be empty!");
+                    return false;
+                 }
+
+                 if(password.length < 6) {
+
+                    alert("password must be atleast 6 characters long");
+                    return false;
+                 }
+
+                 if(password.length > 20) {
+
+                    alert ("password cannot be more than 20 characters");
+                    return false;
+                 }
+            }
+        </script>
+    </body>
+</html>

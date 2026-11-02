@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IMAGE link</title>
+    </head>
+<body>
+    <h1 style="color: cornsilk; background-color:cadetblue; font-family: Verdana, Geneva, Tahoma, sans-serif; text-align: center; text-decoration: overline;">Sea View</h1>
+    <hr>
+    <p style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; background-color:cadetblue; color: beige;">You are watching nature</p>
+    <img src="image.jpg" alt="sea view" width="200" height="300">
+    <img src="GreenSeaTurtle.jpg" alt="GreenSeaTurtle" width="500" height="300">
+
+    <p>
+        <ul><li>The sea is the ultimate canvas for a restorative vacation, offering a sensory escape where nature’s raw beauty transforms into pure relaxation.<br></li> 
+            <li>Stepping onto a sun-warmed beach, the fine sand contours to your feet as the refreshing, salty ocean breeze carries away the stresses of daily life.<br></li> 
+            <li>The rhythmic lull of turquoise waves crashing against the shoreline provides a soothing, natural soundtrack, inviting you to unplug and marvel at the endless horizon.<br></li> 
+            <li>Beneath the crystal-clear water lies a vibrant marine ecosystem waiting to be explored through snorkeling and swimming, while the shore serves as a playground for collecting seashells or building intricate sandcastles.<br></li>
+            <li> As daylight fades, the sky melts into a spectacular, warm palette of fiery oranges, soft pinks, and deep purples, concluding a perfect day of coastal immersion.<br></li> 
+        </ul>
+    </p>
+    <form action="sumit_form.php" method="post">
+    <fieldset>
+        <legend>vacation form </legend>
+        <lable for="name">Name:</lable>
+        <input type="text" id="name" name="name" placeholder="Enter name"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter email"><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter password"><br><br>
+
+        <label for="Age">Age:</label>
+        <input type="number" id="Age" name="Age" placeholder="Enter age"><br><br>
+
+        <label for="dob">Date of birth:</label>
+        <input type="date" id="dob" name="dob"><br><br>
+
+        <label for="color">Favorite color:</label>
+        <input type="color" id="color" name="color"><br><br>
+
+        <label for="website">Website:</label>
+        <input type="url" id="website" name="website" placeholder="link url"><br><br>
+
+        <label for="Place">Choose Place</label>
+        <select id="Place" name="Place" ><br><br>
+
+            <option value="cse">Computer Science</option>
+            <option value="ece">Electronics</option>
+            <option value="mech">Mechanical</option>
+            <option value="civil">Civil</option>
+
+        </select>   
+        
+        <textarea name="message" rows="18" cols="38" placeholder="Enter text"></textarea><br><br>
+        <textarea rows="7" cols="48" placeholder="Enter your review"></textarea>
+
+        <h5>select gender</h5>
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="gender" value="male"><br>
+
+        <lable for="female">Female</lable>
+        <input type="radio" id="female" name="gender" value="female"><br>
+
+        <label for="other">Can't say</label>
+        <input type="radio" id="other" name="gender" value="other"><br><br><br>
+
+        <input type="radio" id="web" name="course" value="web">
+        <label for="web">Web designing</label>
+
+        <input type="radio" name="course" id="cloud" value="cloud">
+        <label for="cloud">Cloud computing</label>
+
+        <input type="radio" name="course" id="Al-Ml" value="Al-Ml">
+        <label for="Al-Ml">AL-ML</label><br><br>
+
+        <h5>Select your hobbies</h5>
+
+        <input type="checkbox" name="hobby" id="read" value="read">
+        <label for="read">Reading</label><br>
+
+        <input type="checkbox" name="hobby" id="swimming" value="swimming">
+        <label for="swimming">swimming</label><br>
+
+        <input type="submit" value="submit">
+        <button>Click</button>
+        
+
+        </fieldset>
+    </form>
+</body>    
+</html>

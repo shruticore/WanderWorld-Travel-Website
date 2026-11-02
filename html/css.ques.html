@@ -1,0 +1,75 @@
+<!DOCTYPE>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Table</title>
+        <style>
+            #title {
+                border: 1px solid white;
+                border-collapse: collapse;
+                color: blue;
+                font-weight: bold;
+                font-size: 30px;
+            }
+            
+            #head {
+                border: 1px solid gray;
+                border-collapse: collapse;
+                color: white;
+                background-color: red;
+            }
+            td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                padding:5px;
+                margin: 0px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <table style="width: 100% ; text-align: center; " >
+            <tr>
+                <th colspan="4" id="title">Student Result</th>
+            </tr>
+
+            <tr> 
+                <th colspan="4" id="head">Btech CSE semester Result</th>
+            </tr>
+
+            <tr>
+                <th id="head"> Name</th>
+                <th id="head">Subject</th>
+                <th id="head">Marks</th>
+                <th id="head">Result</th>
+            </tr>
+
+            <tr>
+                <td rowspan="2">Shruti</td>
+                <td>HTML</td>
+                <td>100</td>
+                <td>pass</td>
+            </tr>
+
+            <tr>
+                <td>PPS</td>
+                <td>98</td>
+                <td>pass</td>
+            </tr>
+
+            <tr>
+                <td rowspan="2">Palak</td>
+                <td>HTML</td>
+                <td>100</td>
+                <td>Pass</td>
+            </tr>
+
+            <tr>
+                <td>PPS</td>
+                <td>95</td>
+                <td>pass</td>
+            </tr>
+        </table>
+    </body>
+</html>

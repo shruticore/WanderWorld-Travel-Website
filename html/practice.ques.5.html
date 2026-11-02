@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>College Student Registration Portal</title>
+    </head>
+    <body>
+        <h1 style="text-align: center;">COLLEGE STUDENT REGISTRATION PORTAL</h1>
+        <hr>
+        <strong style="text-align: center;">KIET DEEMED TO BE UNIVERSITY DELHI-NCR</strong>
+        <br>
+        <b style="text-align: center;">This is your college student registration portal</b>
+        <br>
+        <hr>
+        <img src="kiet.jpg" alt="kiet logo" height="200" width="200" >
+        <img src="audi.webp" alt="auditorium" height="200" width="615">
+        <br>
+        <a href="https://www.kiet.edu/">Visit College Website</a>
+        <br>
+        <hr>
+        <h2>COURSES OFFERED</h2>
+        <ul>
+            <li>B.Tech</li>
+            <li>BCA</li>
+            <li>MCA</li>
+            <li>BBA</li>
+        </ul>
+        <hr>
+        <h2>SUBJECTS</h2>
+        <ol>
+            <li>Web Technology</li>
+            <li>Database Management System</li>
+            <li>Computer Network</li>
+            <li>Operation System</li>
+        </ol>
+        <hr>
+        <h2>STUDENT DETAILS</h2>
+        <table border="2">
+            <tr>
+                 <th colspan="4">Student Academic Details</th>
+            </tr>
+        
+            <tr>
+                <th>Roll No.</th>
+                <th>Student Name</th>
+                <th>Course</th>
+                <th>Semester</th>
+            </tr>
+        </table>
+        <br>
+        <hr>
+        <form action="submit_form.php" method="post">
+            <fieldset>
+                <legend>Student Registration Form</legend>
+                <label for="name">Student name:</label>
+                <input type="text" name="name" id="name" placeholder="Enter name">
+                <br><br>
+                <label for="email">email:</label>
+                <input type="email" name="email" id="email" placeholder="Enter email">
+                <br><br>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password">
+                <br><br>
+                <label for="course">Course</label>
+                <select name="course" id="course">
+                    <option value="Btech">Btech</option>
+                    <option value="Database Management System">Database Management System</option>
+                    <option value="Computer Network">Computer Network</option>
+                    <option value="Operating System">Operating System</option>
+                </select>
+                <br><br>
+                <input type="submit" id="submit">
+                <button>click</button>
+            </fieldset>
+        </form>
+    </body>    
+</html>

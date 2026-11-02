@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Prime number</title>
+    </head>
+    <body>
+        <h1>Prime number</h1>
+        <script>
+            let n=17;
+            let count=0;
+
+            for(let i=1; i<=n; i++){
+                if(n%i==0){
+                count++;
+                }
+            }
+            
+            if(count == 2){
+                document.write(n+" is prime number");
+            }
+            else{
+                document.write(n+ " is not a prime number");
+            }
+        </script>
+    </body>
+</html>

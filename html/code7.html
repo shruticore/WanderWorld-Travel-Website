@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>palindrome</title>
+    </head>
+    <body>
+        <h1>Palindrome number</h1>
+        <script>
+            let n=141;
+            let originalNumber=n;
+            let rev=0;
+
+            while(n>0){
+                let digit=n%10;
+                rev=rev*10+digit;
+                n=Math.floor(n/10);
+            }
+
+            n=originalNumber;
+            if(originalNumber==rev){
+                document.write(n+" is a palindrome number");
+            }
+            else{
+                document.write(n+" is not a palindrome number");
+            }
+        </script>
+    </body>
+</html>

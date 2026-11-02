@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderWorld | Travel & Explore</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #087f8c;
+            --dark: #12343b;
+            --accent: #ffb703;
+            --light: #f3fbfc;
+            --text: #25383d;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: Arial, sans-serif; color: var(--text); line-height: 1.6; background: #fff; }
+        a { color: inherit; text-decoration: none; }
+        .container { width: min(1120px, 92%); margin: auto; }
+        header {
+            background: #fff; position: sticky; top: 0; z-index: 10;
+            box-shadow: 0 2px 12px #12343b14;
+        }
+        .navbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 16px 0; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+        .logo span { color: var(--accent); }
+        nav { display: flex; flex-wrap: wrap; gap: 20px; }
+        nav a { font-weight: 700; font-size: .95rem; }
+        nav a:hover { color: var(--primary); }
+        .hero {
+            min-height: 480px; display: grid; place-items: center; text-align: center; color: white;
+            background: linear-gradient(#082c36a8, #082c3670),
+              url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85") center/cover;
+            padding: 70px 20px;
+        }
+        .hero h1 { font-size: clamp(2.4rem, 6vw, 4.6rem); line-height: 1.08; margin-bottom: 18px; }
+        .hero p { max-width: 680px; margin: 0 auto 28px; font-size: 1.1rem; }
+        .btn { display: inline-block; border: 0; cursor: pointer; border-radius: 7px; padding: 12px 20px; font-weight: 700; background: var(--accent); color: #182f32; }
+        .btn:hover { filter: brightness(.95); transform: translateY(-1px); }
+        section { padding: 68px 0; }
+        .section-title { text-align: center; margin-bottom: 35px; }
+        .section-title h2 { color: var(--dark); font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 8px; }
+        .section-title p { color: #63767b; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+        .card { border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 8px 24px #12343b12; }
+        .card img { display: block; width: 100%; height: 210px; object-fit: cover; }
+        .card-body { padding: 20px; }
+        .card h3 { color: var(--dark); margin-bottom: 7px; }
+        .tag { display: inline-block; background: #e2f6f5; color: #076b75; border-radius: 20px; padding: 4px 10px; font-size: .8rem; font-weight: 700; margin: 3px 4px 8px 0; }
+        .price { color: var(--primary); font-size: 1.3rem; font-weight: 800; margin: 10px 0; }
+        .muted { color: #63767b; font-size: .93rem; }
+        .packages { background: var(--light); }
+        .package-list { padding-left: 18px; margin: 10px 0 16px; font-size: .92rem; }
+        .booking-layout { display: grid; grid-template-columns: 1.15fr .85fr; gap: 26px; align-items: start; }
+        form, .summary, .info-box { background: #fff; padding: 25px; border-radius: 14px; box-shadow: 0 8px 24px #12343b12; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 15px; }
+        .field.full { grid-column: 1 / -1; }
+        label { font-weight: 700; font-size: .92rem; }
+        input, select, textarea { width: 100%; border: 1px solid #cbdadd; border-radius: 7px; padding: 11px 12px; font: inherit; background: #fff; }
+        input:focus, select:focus, textarea:focus { outline: 2px solid #087f8c40; border-color: var(--primary); }
+        .error { color: #b42318; font-size: .83rem; min-height: 1em; }
+        .summary { background: var(--dark); color: white; position: sticky; top: 90px; }
+        .summary h3 { color: var(--accent); margin-bottom: 15px; }
+        .summary-row { display: flex; justify-content: space-between; gap: 15px; padding: 9px 0; border-bottom: 1px solid #ffffff26; }
+        .summary-row.total { font-size: 1.2rem; font-weight: 800; border-bottom: 0; margin-top: 8px; }
+        #summaryMessage { margin-top: 15px; color: #b9f5d0; font-weight: 700; }
+        .faq { background: var(--light); }
+        .faq-item { max-width: 850px; margin: 12px auto; border-radius: 10px; background: white; box-shadow: 0 4px 16px #12343b0d; overflow: hidden; }
+        .faq-question { width: 100%; text-align: left; border: 0; padding: 18px 20px; font-size: 1rem; font-weight: 700; background: white; cursor: pointer; color: var(--dark); display: flex; justify-content: space-between; gap: 12px; }
+        .faq-answer { display: none; padding: 0 20px 18px; color: #53676c; }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .plus { transform: rotate(45deg); }
+        .plus { font-size: 1.3rem; transition: transform .2s; }
+        footer { background: #0b252b; color: #d8e7e9; text-align: center; padding: 25px 12px; }
+        footer strong { color: var(--accent); }
+        @media (max-width: 800px) {
+            .grid { grid-template-columns: repeat(2, 1fr); }
+            .booking-layout { grid-template-columns: 1fr; }
+            .summary { position: static; }
+            .navbar { align-items: flex-start; flex-direction: column; }
+        }
+        @media (max-width: 560px) {
+            .grid, .form-grid { grid-template-columns: 1fr; }
+            .field.full { grid-column: auto; }
+            nav { gap: 12px; }
+            section { padding: 48px 0; }
+            .hero { min-height: 420px; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container navbar">
+        <a class="logo" href="#home">Wander<span>World</span></a>
+        <nav aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#packages">Packages</a>
+            <a href="#booking">Book Now</a>
+            <a href="#faq">FAQs</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div>
+            <h1>Make Memories.<br>Explore the World.</h1>
+            <p>Discover beautiful places, plan your next escape, and travel with comfort through handpicked WanderWorld packages.</p>
+            <a class="btn" href="#packages">Explore Packages</a>
+        </div>
+    </section>
+
+    <section id="destinations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Destinations</h2>
+                <p>From mountain adventures to relaxing beaches, choose your next story.</p>
+            </div>
+            <div class="grid">
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80" alt="Snow-covered Himalayan mountains">
+                    <div class="card-body">
+                        <span class="tag">Mountains</span>
+                        <h3>Manali, Himachal Pradesh</h3>
+                        <p>Attractions: Solang Valley, Hadimba Temple, Old Manali and mountain viewpoints.</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=80" alt="Tropical beach with clear water">
+                    <div class="card-body">
+                        <span class="tag">Beach</span>
+                        <h3>Goa</h3>
+                        <p>Attractions: Baga Beach, Fort Aguada, local markets and sunset cruises.</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=900&q=80" alt="Jaipur Hawa Mahal palace facade">
+                    <div class="card-body">
+                        <span class="tag">Culture</span>
+                        <h3>Jaipur, Rajasthan</h3>
+                        <p>Attractions: Hawa Mahal, Amber Fort, City Palace and traditional bazaars.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="packages" id="packages">
+        <div class="container">
+            <div class="section-title">
+                <h2>Travel Packages</h2>
+                <p>Clear starting prices, useful facilities and memorable experiences.</p>
+            </div>
+            <div class="grid">
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=900&q=80" alt="Mountain valley in Manali">
+                    <div class="card-body">
+                        <h3>Mountain Escape</h3>
+                        <p class="muted">Manali • 4 days / 3 nights</p>
+                        <p class="price">₹8,500 <small>/ person</small></p>
+                        <ul class="package-list"><li>Hotel stay with breakfast</li><li>Local sightseeing</li><li>AC Volvo transfers</li><li>Trip coordinator support</li></ul>
+                        <button class="btn choose-package" data-package="mountain">Choose package</button>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=80" alt="Goa beach">
+                    <div class="card-body">
+                        <h3>Coastal Break</h3>
+                        <p class="muted">Goa • 3 days / 2 nights</p>
+                        <p class="price">₹6,000 <small>/ person</small></p>
+                        <ul class="package-list"><li>Hotel stay with breakfast</li><li>North Goa sightseeing</li><li>Airport / station pickup</li><li>Beach activity assistance</li></ul>
+                        <button class="btn choose-package" data-package="coastal">Choose package</button>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=900&q=80" alt="Hawa Mahal in Jaipur">
+                    <div class="card-body">
+                        <h3>Royal Rajasthan</h3>
+                        <p class="muted">Jaipur • 2 days / 1 night</p>
+                        <p class="price">₹4,500 <small>/ person</small></p>
+                        <ul class="package-list"><li>Hotel stay with breakfast</li><li>Fort and palace tour</li><li>Local transport</li><li>Heritage guide</li></ul>
+                        <button class="btn choose-package" data-package="royal">Choose package</button>
+                    </div>
+                </article>
+            </div>
+            <p class="muted" style="text-align:center;margin-top:18px;">*Prices are sample educational-project rates and may change. Personal shopping and optional activities are not included.</p>
+        </div>
+    </section>
+
+    <section id="booking">
+        <div class="container">
+            <div class="section-title">
+                <h2>Book Your Trip</h2>
+                <p>Enter your details to calculate an estimated package total.</p>
+            </div>
+            <div class="booking-layout">
+                <form id="bookingForm" novalidate>
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="fullName">Full name *</label>
+                            <input id="fullName" name="fullName" type="text" placeholder="Enter your name" required>
+                            <span class="error" id="nameError"></span>
+                        </div>
+                        <div class="field">
+                            <label for="email">Email address *</label>
+                            <input id="email" name="email" type="email" placeholder="name@example.com" required>
+                            <span class="error" id="emailError"></span>
+                        </div>
+                        <div class="field">
+                            <label for="phone">Phone number *</label>
+                            <input id="phone" name="phone" type="tel" placeholder="10-digit mobile number" required>
+                            <span class="error" id="phoneError"></span>
+                        </div>
+                        <div class="field">
+                            <label for="travelDate">Travel date *</label>
+                            <input id="travelDate" name="travelDate" type="date" required>
+                            <span class="error" id="dateError"></span>
+                        </div>
+                        <div class="field">
+                            <label for="package">Select package *</label>
+                            <select id="package" name="package" required>
+                                <option value="">-- Choose a package --</option>
+                                <option value="mountain">Mountain Escape — ₹8,500/person</option>
+                                <option value="coastal">Coastal Break — ₹6,000/person</option>
+                                <option value="royal">Royal Rajasthan — ₹4,500/person</option>
+                            </select>
+                            <span class="error" id="packageError"></span>
+                        </div>
+                        <div class="field">
+                            <label for="travelers">Number of travelers *</label>
+                            <input id="travelers" name="travelers" type="number" min="1" max="20" value="1" required>
+                            <span class="error" id="travelersError"></span>
+                        </div>
+                        <div class="field full">
+                            <label for="requests">Special requests (optional)</label>
+                            <textarea id="requests" name="requests" rows="3" placeholder="Any preferences or questions?"></textarea>
+                        </div>
+                    </div>
+                    <button class="btn" type="submit">Validate & create summary</button>
+                    <p class="muted" style="margin-top:10px;">This demo displays a booking summary only. It does not process payments or submit data to a server.</p>
+                </form>
+
+                <aside class="summary" aria-live="polite">
+                    <h3>Booking Summary</h3>
+                    <div class="summary-row"><span>Package</span><strong id="summaryPackage">Not selected</strong></div>
+                    <div class="summary-row"><span>Duration</span><strong id="summaryDuration">—</strong></div>
+                    <div class="summary-row"><span>Price per person</span><strong id="summaryPrice">₹0</strong></div>
+                    <div class="summary-row"><span>Travelers</span><strong id="summaryTravelers">1</strong></div>
+                    <div class="summary-row total"><span>Estimated total</span><strong id="summaryTotal">₹0</strong></div>
+                    <p id="summaryMessage">Choose a package to see your estimated cost.</p>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Click a question to reveal its answer.</p>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">Can I change my travel date? <span class="plus">+</span></button>
+                <div class="faq-answer"><p>In a real booking, date changes depend on availability and the package terms. Contact the travel provider before making changes.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">What facilities are included? <span class="plus">+</span></button>
+                <div class="faq-answer"><p>Each package includes the facilities listed on its card. Meals, transfers and activities may differ between packages.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">Does this page confirm a real booking? <span class="plus">+</span></button>
+                <div class="faq-answer"><p>No. This is a front-end demonstration for a student project. It validates entries and creates a summary in the browser, but it does not contact a booking service.</p></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 <strong>WanderWorld</strong> · Explore more, worry less.</p>
+</footer>
+
+<script>
+    // Package details used for cost calculation and the booking summary.
+    const packages = {
+        mountain: { name: "Mountain Escape", price: 8500, duration: "4 days / 3 nights" },
+        coastal: { name: "Coastal Break", price: 6000, duration: "3 days / 2 nights" },
+        royal: { name: "Royal Rajasthan", price: 4500, duration: "2 days / 1 night" }
+    };
+
+    const packageSelect = document.getElementById("package");
+    const travelersInput = document.getElementById("travelers");
+    const form = document.getElementById("bookingForm");
+    const money = amount => "₹" + amount.toLocaleString("en-IN");
+
+    // Update the estimated price whenever the package or traveler count changes.
+    function updateSummary() {
+        const selected = packages[packageSelect.value];
+        const count = Number(travelersInput.value);
+        document.getElementById("summaryPackage").textContent = selected ? selected.name : "Not selected";
+        document.getElementById("summaryDuration").textContent = selected ? selected.duration : "—";
+        document.getElementById("summaryPrice").textContent = selected ? money(selected.price) : "₹0";
+        document.getElementById("summaryTravelers").textContent = Number.isFinite(count) && count > 0 ? count : "—";
+        document.getElementById("summaryTotal").textContent =
+            selected && Number.isInteger(count) && count >= 1 && count <= 20 ? money(selected.price * count) : "₹0";
+        document.getElementById("summaryMessage").textContent = "Estimated price only; no payment has been taken.";
+    }
+    packageSelect.addEventListener("change", updateSummary);
+    travelersInput.addEventListener("input", updateSummary);
+
+    // Buttons on package cards preselect the matching package in the form.
+    document.querySelectorAll(".choose-package").forEach(button => {
+        button.addEventListener("click", () => {
+            packageSelect.value = button.dataset.package;
+            updateSummary();
+            document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
+        });
+    });
+
+    // Set the earliest selectable travel date to today.
+    const today = new Date();
+    const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().split("T")[0];
+    document.getElementById("travelDate").min = localToday;
+
+    function setError(id, message) {
+        document.getElementById(id).textContent = message;
+    }
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("fullName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const date = document.getElementById("travelDate").value;
+        const selected = packages[packageSelect.value];
+        const travelers = Number(travelersInput.value);
+        let valid = true;
+
+        setError("nameError", "");
+        setError("emailError", "");
+        setError("phoneError", "");
+        setError("dateError", "");
+        setError("packageError", "");
+        setError("travelersError", "");
+        document.getElementById("summaryMessage").textContent = "";
+
+        if (name.length < 2) {
+            setError("nameError", "Please enter a name with at least 2 characters.");
+            valid = false;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            setError("emailError", "Enter a valid email address.");
+            valid = false;
+        }
+        if (!/^[6-9]\d{9}$/.test(phone)) {
+            setError("phoneError", "Enter a valid 10-digit Indian mobile number.");
+            valid = false;
+        }
+        if (!date || date < localToday) {
+            setError("dateError", "Choose today or a future date.");
+            valid = false;
+        }
+        if (!selected) {
+            setError("packageError", "Please select a package.");
+            valid = false;
+        }
+        if (!Number.isInteger(travelers) || travelers < 1 || travelers > 20) {
+            setError("travelersError", "Choose between 1 and 20 travelers.");
+            valid = false;
+        }
+
+        if (!valid) {
+            document.getElementById("summaryMessage").textContent = "Please correct the highlighted fields.";
+            document.getElementById("summaryMessage").style.color = "#ffd2cc";
+            return;
+        }
+
+        updateSummary();
+        document.getElementById("summaryMessage").style.color = "#b9f5d0";
+        document.getElementById("summaryMessage").textContent =
+            `Enquiry prepared for ${name}! Estimated total: ${money(selected.price * travelers)}. This is not a confirmed booking.`;
+    });
+
+    // FAQ accordion: clicking a question opens/closes its answer.
+    document.querySelectorAll(".faq-question").forEach(button => {
+        button.addEventListener("click", () => {
+            const item = button.closest(".faq-item");
+            const isOpen = item.classList.toggle("active");
+            button.setAttribute("aria-expanded", String(isOpen));
+        });
+    });
+
+    updateSummary();
+</script>
+</body>
+</html>
